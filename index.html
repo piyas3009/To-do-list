@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="app" role="application" aria-label="To-Do List">
+    <div class="header">
+      <h1>To-Do</h1>
+      <div class="muted" id="today"></div>
+    </div>
+
+    <form class="new-task" id="newTaskForm" autocomplete="off">
+      <input id="taskInput" class="input" type="text" placeholder="What do you need to do? (Press Enter)" aria-label="New task" />
+      <button class="btn" type="submit" aria-label="Add task">Add</button>
+    </form>
+
+    <div class="toolbar" aria-label="Task filters and actions">
+      <div class="filters" role="tablist" aria-label="Filters">
+        <button class="chip" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" data-filter="active" aria-pressed="false">Active</button>
+        <button class="chip" data-filter="completed" aria-pressed="false">Completed</button>
+      </div>
+      <div class="actions" style="display:flex; gap:8px;">
+        <button id="clearCompleted" class="btn secondary" type="button">Clear Completed</button>
+        <button id="exportJSON" class="btn ghost" type="button" title="Download your tasks as JSON">Export</button>
+      </div>
+    </div>
+
+    <ul id="list" class="list" aria-live="polite"></ul>
+
+    <div id="emptyState" class="empty" hidden>
+      No tasks yet. Add your first one above 
+    </div>
+
+    <div class="footer-row">
+      <div id="count" class="count">0 items</div>
+      <button id="clearAll" class="btn secondary" type="button">Clear All</button>
+       </div>
+  </main>
+    <script src="app.js"></script>
+</body>
+</html>
